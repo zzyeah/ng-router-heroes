@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class HeroDetailComponent implements OnInit {
   hero$!: Observable<Hero>
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -28,8 +28,9 @@ export class HeroDetailComponent implements OnInit {
     );
   }
 
-  gotoHeroes(hero: Hero): void{
-    this.router.navigate(['/heroes']);
+  gotoHeroes(hero: Hero): void {
+    const heroId = hero ? hero.id : null;
+    this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
   }
 
 }
