@@ -14,7 +14,8 @@ import { Observable } from 'rxjs';
 })
 export class HeroDetailComponent implements OnInit {
   hero$!: Observable<Hero>
-
+  selectedId = 0
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
