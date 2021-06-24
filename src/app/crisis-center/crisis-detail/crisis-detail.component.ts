@@ -3,23 +3,23 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 // import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 
-import { HeroService } from '../hero.service';
-import { Hero } from '../hero';
+import { CrisisService } from '../crisis.service';
+import { Crisis } from '../crisis';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.less']
+  selector: 'app-crisis-detail',
+  templateUrl: './crisis-detail.component.html',
+  styleUrls: ['./crisis-detail.component.less']
 })
-export class HeroDetailComponent implements OnInit {
-  hero$!: Observable<Hero>
+export class CrisisDetailComponent implements OnInit {
+  hero$!: Observable<Crisis>
   selectedId = 0
   
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: HeroService
+    private service: CrisisService
   ) { }
 
   ngOnInit() {
@@ -29,9 +29,9 @@ export class HeroDetailComponent implements OnInit {
     );
   }
 
-  gotoHeroes(hero: Hero) {
-    const heroId = hero ? hero.id : null;
-    this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
+  gotoHeroes(crisis: Crisis) {
+    const crisisId = crisis ? crisis.id : null;
+    this.router.navigate(['../', { id: crisisId, foo: 'foo' }], {relativeTo: this.route});
   }
 
 }
