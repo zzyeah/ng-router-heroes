@@ -6,12 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -19,8 +17,6 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     FormsModule,
     HeroesModule,
-    CrisisCenterModule,
-    AdminModule,
     AuthModule,
     AppRoutingModule
   ],
@@ -31,4 +27,11 @@ import { AuthModule } from './auth/auth.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router) {
+    // const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    // console.log('Routes', JSON.stringify(router.config, replacer, 2));
+    
+  }
+}

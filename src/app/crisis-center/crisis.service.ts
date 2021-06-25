@@ -14,16 +14,17 @@ export class CrisisService {
 
   constructor(private messageService: MessageService) { }
 
-  getHeroes(): Observable<Crisis[]> {
+  getCrises(): Observable<Crisis[]> {
     // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('HeroService: fetched heroes');
+    this.messageService.add('CrisisService: fetched heroes');
     return of(CRISES);
   }
 
-  getHero(id: number | string) {
-    return this.getHeroes().pipe(
+  getCrisis(id: number | string) {
+    console.log(id);
+    return this.getCrises().pipe(
       // (+) before `id` turns the string into a number
-      map((heroes: Crisis[]) => heroes.find(hero => hero.id === +id)!)
+      map((Crises: Crisis[]) => Crises.find(Crisis => Crisis.id === +id)!)
     );
   }
 }
